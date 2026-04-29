@@ -3,445 +3,430 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serà Fine Silk | Gift-Ready Formalwear CPS Landing Page</title>
+  <title>Philips Hue US | Starter Kit Guide</title>
   <style>
     :root {
-      --bg: #f5eee6;
-      --paper: rgba(255, 250, 244, 0.92);
-      --paper-strong: #fff9f2;
-      --text: #2d1f1b;
-      --muted: #6e5a53;
-      --line: rgba(81, 55, 44, 0.14);
-      --accent: #7a243d;
-      --accent-2: #c48a3a;
-      --ink: #1c1513;
-      --shadow: 0 22px 50px rgba(74, 46, 36, 0.12);
-      --radius-lg: 30px;
-      --radius-md: 22px;
-      --radius-sm: 14px;
+      --bg: #eef4ff;
+      --paper: #ffffff;
+      --paper-soft: #f3f8ff;
+      --ink: #10213f;
+      --muted: #556785;
+      --line: #d9e4f3;
+      --blue: #0d63ff;
+      --teal: #10cbbb;
+      --violet: #7b78ff;
+      --shadow: 0 22px 46px rgba(18, 44, 90, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
       --max: 1180px;
-      --heading: Baskerville, "Palatino Linotype", "Book Antiqua", serif;
-      --body: "Avenir Next", Candara, "Trebuchet MS", sans-serif;
+      --heading: "Gill Sans", "Trebuchet MS", sans-serif;
+      --body: "Trebuchet MS", "Segoe UI", sans-serif;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      color: var(--text);
+      color: var(--ink);
       font-family: var(--body);
       background:
-        radial-gradient(circle at 10% 18%, rgba(196, 138, 58, 0.17), transparent 25%),
-        radial-gradient(circle at 88% 10%, rgba(122, 36, 61, 0.14), transparent 28%),
-        linear-gradient(180deg, #f5eee6 0%, #efe3d7 48%, #f7f0e9 100%);
-      line-height: 1.65;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(135deg, rgba(122, 36, 61, 0.03), transparent 30%),
-        radial-gradient(circle at 20% 80%, rgba(196, 138, 58, 0.1), transparent 22%);
-      opacity: 0.9;
+        radial-gradient(circle at top left, rgba(16, 203, 187, 0.13), transparent 20%),
+        radial-gradient(circle at top right, rgba(123, 120, 255, 0.1), transparent 20%),
+        linear-gradient(180deg, #f5f9ff 0%, var(--bg) 100%);
+      line-height: 1.62;
     }
 
     a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
 
     .wrap {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
-      position: relative;
     }
 
     .eyebrow {
-      font-size: 0.78rem;
-      letter-spacing: 0.19em;
+      display: inline-block;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .hero {
-      padding: 28px 0 86px;
+      font-size: 0.78rem;
+      color: var(--blue);
+      font-weight: 700;
     }
 
     .topbar {
+      padding: 22px 0 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 34px;
     }
 
     .brand {
       font-family: var(--heading);
-      font-size: 1.2rem;
-      letter-spacing: 0.08em;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
     .top-note {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.56);
-      border: 1px solid rgba(122, 36, 61, 0.12);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--line);
       color: var(--muted);
       font-size: 0.9rem;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 24px;
+    .hero {
+      padding-bottom: 64px;
     }
 
-    .hero-copy,
-    .hero-panel,
-    .card,
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .evidence-card,
+    .strip-card,
+    .starter-card,
+    .compare-card,
+    .scenario-card,
+    .scenario-output,
     .faq-card,
-    .sticky-card {
+    .sticky-card,
+    .closing-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
     }
 
+    .hero-main {
+      overflow: hidden;
+    }
+
+    .hero-scene {
+      position: relative;
+      min-height: 380px;
+      background: #d9e5f4;
+    }
+
+    .hero-scene img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: auto 18px 18px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-glow span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(12, 20, 36, 0.72);
+      backdrop-filter: blur(12px);
+      font-size: 0.86rem;
+    }
+
     .hero-copy {
-      padding: 34px;
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(145deg, rgba(255, 249, 242, 0.96), rgba(255, 251, 247, 0.9)),
-        radial-gradient(circle at top right, rgba(196, 138, 58, 0.12), transparent 40%);
-      border: 1px solid rgba(122, 36, 61, 0.12);
+      padding: 28px;
     }
 
     h1, h2, h3 {
       margin: 0;
       font-family: var(--heading);
-      line-height: 1.08;
+      line-height: 1.06;
     }
 
     h1 {
-      margin-top: 16px;
-      font-size: clamp(2.7rem, 5vw, 5.2rem);
+      margin-top: 12px;
+      font-size: clamp(2.7rem, 5vw, 4.9rem);
       max-width: 11ch;
-      color: var(--ink);
     }
 
     h2 {
-      font-size: clamp(2rem, 3.3vw, 3.1rem);
+      font-size: clamp(1.8rem, 3vw, 3rem);
       max-width: 12ch;
-      color: var(--ink);
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
     }
 
     .lead {
-      margin: 18px 0 24px;
+      margin-top: 16px;
       max-width: 58ch;
-      color: var(--muted);
-      font-size: 1.03rem;
+      font-size: 1.05rem;
     }
 
-    .chip-row,
-    .why-grid,
-    .occasion-grid,
-    .pick-grid,
-    .gift-grid,
-    .confidence-grid,
-    .faq-grid {
-      display: grid;
-      gap: 14px;
+    .trust-row {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .chip-row {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      margin-bottom: 26px;
-    }
-
-    .chip {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid rgba(122, 36, 61, 0.1);
-    }
-
-    .chip strong {
-      display: block;
-      margin-bottom: 6px;
-      font-family: var(--heading);
-      font-size: 1.18rem;
+    .trust-row span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
       color: var(--ink);
+      font-size: 0.9rem;
     }
 
     .cta-row {
+      margin-top: 24px;
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       align-items: center;
     }
 
     .button {
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 54px;
-      padding: 0 24px;
-      border-radius: 999px;
-      border: 0;
-      cursor: pointer;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-      font-family: var(--body);
-      font-size: 0.94rem;
       font-weight: 700;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
+      border: 1px solid transparent;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      cursor: pointer;
     }
 
     .button:hover,
     .button:focus-visible { transform: translateY(-2px); }
 
     .button-primary {
-      color: #fff8f0;
-      background: linear-gradient(135deg, var(--accent), #5d1a30);
-      box-shadow: 0 18px 34px rgba(122, 36, 61, 0.22);
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      color: #fff;
+      box-shadow: 0 16px 28px rgba(13, 99, 255, 0.18);
     }
 
     .button-secondary {
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.6);
-      border: 1px solid rgba(122, 36, 61, 0.14);
+      background: #fff;
+      color: var(--ink);
+      border-color: var(--line);
     }
 
-    .microcopy {
-      font-size: 0.94rem;
-      color: var(--muted);
-    }
-
-    .hero-panel {
-      padding: 28px;
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(244, 236, 227, 0.96)),
-        radial-gradient(circle at top, rgba(196, 138, 58, 0.12), transparent 44%);
-      border: 1px solid rgba(122, 36, 61, 0.12);
+    .evidence-card {
+      padding: 22px;
       display: grid;
       gap: 18px;
       align-content: start;
     }
 
-    .panel-frame {
-      padding: 22px;
-      border-radius: 22px;
-      background:
-        linear-gradient(140deg, rgba(122, 36, 61, 0.92), rgba(41, 25, 26, 0.92)),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.14), transparent 34%);
-      color: #fff7ee;
-      position: relative;
-      overflow: hidden;
-      min-height: 300px;
+    .evidence-top {
       display: grid;
-      align-content: end;
+      grid-template-columns: 1fr 120px;
+      gap: 16px;
+      align-items: center;
     }
 
-    .panel-frame::before,
-    .panel-frame::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      filter: blur(4px);
+    .evidence-top img {
+      border-radius: 18px;
+      background: #eef4ff;
+      padding: 10px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
     }
 
-    .panel-frame::before {
-      width: 240px;
-      height: 240px;
-      top: -90px;
-      right: -60px;
+    .evidence-bullets {
+      display: grid;
+      gap: 12px;
     }
 
-    .panel-frame::after {
-      width: 180px;
-      height: 180px;
-      bottom: -80px;
-      left: -30px;
+    .evidence-bullets div {
+      padding: 14px;
+      border-radius: 16px;
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
     }
 
-    .panel-frame h2 {
-      color: #fff7ee;
-      max-width: 10ch;
+    .evidence-bullets strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-family: var(--heading);
+      font-size: 1.1rem;
     }
 
-    .panel-frame p {
-      margin: 12px 0 0;
-      max-width: 38ch;
-      color: rgba(255, 247, 238, 0.88);
-    }
-
-    section { padding: 0 0 76px; }
+    section { padding-bottom: 68px; }
 
     .section-head {
       display: flex;
       justify-content: space-between;
       align-items: end;
       gap: 18px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .section-head p {
-      margin: 10px 0 0;
-      color: var(--muted);
       max-width: 56ch;
     }
 
-    .why-grid,
-    .gift-grid,
+    .strip-grid,
+    .starter-grid,
+    .compare-grid,
+    .scenario-grid,
+    .faq-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .strip-grid,
+    .starter-grid,
+    .compare-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .strip-card,
+    .starter-card,
+    .compare-card,
+    .scenario-card,
+    .faq-card {
+      padding: 20px;
+    }
+
+    .strip-card strong,
+    .starter-card strong,
+    .compare-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-family: var(--heading);
+      font-size: 1.1rem;
+    }
+
+    .starter-card img,
+    .compare-card img {
+      border-radius: 16px;
+      margin-bottom: 14px;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: #dfe9f5;
+    }
+
+    .starter-card em,
+    .compare-card em {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-style: normal;
+      color: var(--blue);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .scenario-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .scenario-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .scenario-card {
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease;
+      border: 1px solid var(--line);
+    }
+
+    .scenario-card.active {
+      border-color: var(--blue);
+      transform: translateY(-3px);
+    }
+
+    .scenario-card img {
+      border-radius: 16px;
+      margin-bottom: 14px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: #e2ebf8;
+    }
+
+    .scenario-card small {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .scenario-output {
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .scenario-output img {
+      border-radius: 18px;
+      margin-top: 18px;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #d9e5f5;
+    }
+
+    .scenario-output strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-family: var(--heading);
+      font-size: 1.4rem;
+    }
+
     .faq-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .occasion-grid,
-    .pick-grid,
-    .confidence-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .card,
-    .faq-card {
-      padding: 24px;
-      border-radius: var(--radius-md);
-      background: var(--paper);
-      border: 1px solid var(--line);
-    }
-
-    .card h3,
-    .faq-card h3 {
-      font-size: 1.28rem;
-      margin-bottom: 10px;
-      color: var(--ink);
-    }
-
-    .card p,
-    .faq-card p,
-    .faq-card li {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .occasion-button {
-      appearance: none;
-      border: 1px solid rgba(122, 36, 61, 0.12);
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.65);
-      padding: 20px;
-      text-align: left;
-      cursor: pointer;
-      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
-      color: inherit;
-      box-shadow: var(--shadow);
-    }
-
-    .occasion-button:hover,
-    .occasion-button:focus-visible {
-      transform: translateY(-2px);
-    }
-
-    .occasion-button.active {
-      border-color: rgba(122, 36, 61, 0.8);
-      background: linear-gradient(180deg, rgba(255, 249, 243, 0.98), rgba(247, 239, 230, 0.96));
-    }
-
-    .occasion-button strong {
-      display: block;
-      margin-bottom: 8px;
-      font-family: var(--heading);
-      font-size: 1.24rem;
-      color: var(--ink);
-    }
-
-    .occasion-output {
-      margin-top: 18px;
-      padding: 22px;
-      border-radius: 24px;
-      background:
-        linear-gradient(135deg, rgba(122, 36, 61, 0.08), rgba(196, 138, 58, 0.08)),
-        rgba(255, 255, 255, 0.78);
-      border: 1px solid rgba(122, 36, 61, 0.12);
-    }
-
-    .occasion-output strong {
-      display: block;
-      font-family: var(--heading);
-      font-size: 1.45rem;
-      margin-bottom: 10px;
-      color: var(--ink);
-    }
-
-    .pick-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pick-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto auto 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .pick-card em,
-    .gift-card em,
-    .confidence-card em {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-style: normal;
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
     details {
-      border-radius: 18px;
       border: 1px solid var(--line);
-      background: var(--paper);
-      padding: 18px 20px;
+      border-radius: 16px;
+      padding: 16px 18px;
+      background: #fff;
     }
 
     summary {
+      list-style: none;
       cursor: pointer;
       font-family: var(--heading);
-      font-size: 1.06rem;
-      list-style: none;
+      font-size: 1.02rem;
       color: var(--ink);
     }
 
     summary::-webkit-details-marker { display: none; }
 
-    details p {
-      margin-top: 12px;
-      color: var(--muted);
-    }
+    details p { margin-top: 12px; }
 
-    .cta-band {
-      padding: 30px;
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(135deg, rgba(122, 36, 61, 0.12), rgba(196, 138, 58, 0.12)),
-        rgba(255, 250, 244, 0.96);
-      border: 1px solid rgba(122, 36, 61, 0.12);
+    .closing-card {
+      padding: 26px;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 20px;
+      gap: 18px;
       align-items: center;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-band p {
-      margin: 10px 0 0;
-      color: var(--muted);
-      max-width: 56ch;
+      background: linear-gradient(135deg, #edf6ff, #eef1ff);
     }
 
     .sticky {
@@ -454,21 +439,38 @@
     }
 
     .sticky-card {
+      padding: 12px 14px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 18px;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255, 251, 247, 0.94);
-      border: 1px solid rgba(122, 36, 61, 0.12);
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .sticky-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .sticky-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      overflow: hidden;
+      flex: 0 0 auto;
+      background: #dce8f6;
+    }
+
+    .sticky-thumb img {
+      height: 100%;
+      object-fit: cover;
     }
 
     .sticky-copy strong {
       display: block;
-      font-family: var(--heading);
-      font-size: 1.05rem;
       color: var(--ink);
+      font-family: var(--heading);
     }
 
     .sticky-copy span {
@@ -482,35 +484,38 @@
 
     @media (max-width: 980px) {
       .hero-grid,
-      .why-grid,
-      .occasion-grid,
-      .pick-grid,
-      .gift-grid,
-      .confidence-grid,
+      .closing-card,
+      .strip-grid,
+      .starter-grid,
+      .compare-grid,
       .faq-grid,
-      .cta-band {
+      .scenario-shell,
+      .scenario-grid {
         grid-template-columns: 1fr;
       }
 
       .section-head { align-items: start; }
-      .chip-row { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
-      .hero { padding-bottom: 108px; }
-      .hero-copy,
-      .hero-panel,
-      .card,
-      .faq-card,
-      .cta-band {
-        padding: 22px;
-      }
-
       .topbar {
         flex-direction: column;
         align-items: start;
       }
 
+      .hero-copy,
+      .evidence-card,
+      .strip-card,
+      .starter-card,
+      .compare-card,
+      .scenario-card,
+      .scenario-output,
+      .faq-card,
+      .closing-card {
+        padding: 20px;
+      }
+
+      .cta-row,
       .sticky-card {
         flex-direction: column;
         align-items: stretch;
@@ -524,57 +529,63 @@
   <header class="hero">
     <div class="wrap">
       <div class="topbar">
-        <div class="brand">Serà Fine Silk Occasion Guide</div>
-        <div class="top-note">Gift-ready formalwear positioning for high-intent style traffic</div>
+        <div class="brand">Philips Hue First-Order Guide</div>
+        <div class="top-note">Built more like a smart-lighting buyer's guide than a generic brand landing page.</div>
       </div>
 
       <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow">Wedding / gift / formal occasion angle</div>
-          <h1>When the moment matters, wear silk that already feels like a gift.</h1>
-          <p class="lead">
-            The fastest way to convert premium style traffic is not to show everything. It is to make the visitor feel
-            elegantly understood. This page narrows Serà Fine Silk into the occasions where beautiful decisions happen faster.
-          </p>
-
-          <div class="chip-row">
-            <div class="chip">
-              <strong>Designed in Milan</strong>
-              Produced in Como with a Made in Italy story that already carries emotional weight.
-            </div>
-            <div class="chip">
-              <strong>Gift-ready</strong>
-              Official FAQ language confirms the signature blue and gold luxury gift box.
-            </div>
-            <div class="chip">
-              <strong>Style support</strong>
-              The official FAQ invites shoppers to ask for advice by occasion, suit color, and dress code.
+        <article class="hero-main">
+          <div class="hero-scene">
+            <img id="heroImage" alt="">
+            <div class="hero-glow">
+              <span>Starter-kit friendly</span>
+              <span>Room-based buying</span>
+              <span>Scenes, mood, and routines</span>
             </div>
           </div>
-
-          <div class="cta-row">
-            <a class="button button-primary" data-aff-link href="#">Shop Serà Fine Silk</a>
-            <a class="button button-secondary" href="#occasion-selector">Find your occasion fit</a>
-          </div>
-          <p class="microcopy" id="heroOccasionNote">Recommended angle: wedding guest and formal-event traffic, where the page can shorten the styling decision.</p>
-        </div>
-
-        <aside class="hero-panel">
-          <div class="panel-frame">
-            <div class="eyebrow" style="color:#f6d69b;">Why this page can convert</div>
-            <h2>Luxury feels easier when the choice already feels styled.</h2>
-            <p>
-              Serà works best when the visitor is not browsing for "menswear" in general, but shopping for one polished
-              moment: a wedding, a black-tie event, or a meaningful gift.
+          <div class="hero-copy">
+            <div class="eyebrow">Starter kits / bundles / room transformation</div>
+            <h1>Sell the room outcome first, and Hue starts feeling easy to buy.</h1>
+            <p class="lead">
+              This redesign mixes official Philips Hue visual language with the structure of a strong affiliate buyer's
+              guide. The result is less “brand brochure” and more “what should I buy first for my home?”
             </p>
+            <div class="trust-row">
+              <span>Free shipping over $49.99</span>
+              <span>Free returns for 30 days</span>
+              <span>2-year warranty</span>
+              <span>Klarna support on official pages</span>
+            </div>
+            <div class="cta-row">
+              <a class="button button-primary" data-aff-link href="#">Shop Philips Hue</a>
+              <a class="button button-secondary" href="#scenario-grid">Choose a room goal</a>
+            </div>
+            <p style="margin-top:14px;" id="heroScenarioNote">Recommended angle: beginner traffic should see one room transformation path before it sees the whole catalog.</p>
           </div>
+        </article>
 
-          <div class="card">
-            <h3>Verified commercial strengths</h3>
-            <p>
-              The spreadsheet shows low cancellation pressure and solid payment speed for a premium retail program.
-              That makes it a good supplemental CPS test when the page handles choice anxiety properly.
-            </p>
+        <aside class="evidence-card">
+          <div class="eyebrow">Evidence at a glance</div>
+          <div class="evidence-top">
+            <div>
+              <h2 style="max-width:none;">Start with a kit, then expand if the first room earns it.</h2>
+              <p style="margin-top:12px;">This is the shortest path from curiosity to a believable first order.</p>
+            </div>
+            <img id="packshotImage" alt="">
+          </div>
+          <div class="evidence-bullets">
+            <div>
+              <strong>Best first buy</strong>
+              <p>Starter kits and room bundles reduce category confusion better than one-off bulb pages.</p>
+            </div>
+            <div>
+              <strong>Best value story</strong>
+              <p>The ecosystem becomes easier to justify when the buyer pictures a specific room change.</p>
+            </div>
+            <div>
+              <strong>Best trust signals</strong>
+              <p>Policies, app control, voice compatibility, and expandability matter more for first-time smart-light buyers than abstract feature lists.</p>
+            </div>
           </div>
         </aside>
       </div>
@@ -585,123 +596,30 @@
     <section>
       <div class="section-head">
         <div>
-          <div class="eyebrow">Why Serà</div>
-          <h2>Three reasons this brand can earn a quicker yes than a giant catalog.</h2>
+          <div class="eyebrow">Why this page shape works</div>
+          <h2>It behaves like a buyer's guide, but still hands off cleanly to the official store.</h2>
         </div>
         <p>
-          The official site already gives you the right trust ingredients. The pre-sell job is to surface them in the
-          order a paid visitor needs to see them.
+          The page structure references strong CPS comparison sites and product-led guides: proof blocks, visible
+          visuals, category simplification, and room-based decision flows.
         </p>
       </div>
-
-      <div class="why-grid">
-        <article class="card">
-          <h3>Italian craftsmanship without generic luxury copy</h3>
-          <p>
-            The official brand story is specific: designed in Milan, crafted in Como, rooted in Italian silk production.
-            That makes the premium position feel tangible instead of vague.
-          </p>
+      <div class="strip-grid">
+        <article class="strip-card">
+          <strong>Room first</strong>
+          <p>People buy better sleep, better movie nights, or a better gaming setup before they buy “smart bulbs.”</p>
         </article>
-        <article class="card">
-          <h3>Gift presentation is already part of the product story</h3>
-          <p>
-            The official FAQ confirms a signature blue and gold gift box, optional gift wrapping, and handwritten note support.
-            That lowers gifting friction immediately.
-          </p>
+        <article class="strip-card">
+          <strong>Kit first</strong>
+          <p>Starter kits feel complete, while single-bulb purchases often leave first-time buyers underwhelmed.</p>
         </article>
-        <article class="card">
-          <h3>Styling support reduces the hardest part of the purchase</h3>
-          <p>
-            Serà explicitly offers styling help by occasion and dress code. That is valuable because premium accessory buyers
-            often hesitate longer over selection than over desire.
-          </p>
+        <article class="strip-card">
+          <strong>Proof first</strong>
+          <p>Trust signals and real scenes remove more hesitation than long paragraphs about protocols and specs.</p>
         </article>
-      </div>
-    </section>
-
-    <section id="occasion-selector">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Occasion Selector</div>
-          <h2>Start with the event. The right product choice becomes obvious.</h2>
-        </div>
-        <p>
-          These are editorial starting points built around the official category mix: ties, pocket squares, bow ties,
-          and gift-ready accessories.
-        </p>
-      </div>
-
-      <div class="occasion-grid">
-        <button class="occasion-button active" type="button" data-occasion data-title="Wedding Guest" data-copy="Start with a silk tie or pocket square that lifts the suit without overpowering it. This is the safest high-intent entry point." data-sticky="Wedding guest edit">
-          <strong>Wedding Guest</strong>
-          For polished celebration dressing that still feels effortless.
-        </button>
-        <button class="occasion-button" type="button" data-occasion data-title="Groom / Black Tie" data-copy="Lead with a bow tie, formal silk accents, and a confidence-first message. In this mode the buyer wants elegance, not experimentation." data-sticky="Formal event edit">
-          <strong>Groom / Black Tie</strong>
-          For moments that need more ceremony and less second-guessing.
-        </button>
-        <button class="occasion-button" type="button" data-occasion data-title="Meaningful Gift" data-copy="Use the gift box, handwritten note, and direct-to-recipient capabilities as the conversion shortcut. This buyer wants beautiful and done-for-them." data-sticky="Gift-ready edit">
-          <strong>Meaningful Gift</strong>
-          For birthdays, anniversaries, thank-yous, and refined last-minute wins.
-        </button>
-        <button class="occasion-button" type="button" data-occasion data-title="Personal Style Upgrade" data-copy="Lead with one versatile hero accessory that instantly changes a navy blazer or white shirt. This audience wants visible payoff from one item." data-sticky="Style-upgrade edit">
-          <strong>Personal Style Upgrade</strong>
-          For shoppers who want one sharper detail, not a whole new wardrobe.
-        </button>
-      </div>
-
-      <div class="occasion-output">
-        <div class="eyebrow">Current recommendation</div>
-        <strong id="occasionTitle">Wedding Guest</strong>
-        <p id="occasionCopy">
-          Start with a silk tie or pocket square that lifts the suit without overpowering it. This is the safest
-          high-intent entry point.
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Curated Picks</div>
-          <h2>Show fewer product paths, but make each one feel easier to buy.</h2>
-        </div>
-        <p>
-          These cards are not a full catalog. They are the fastest routes into the brand for users who need a confident first choice.
-        </p>
-      </div>
-
-      <div class="pick-grid">
-        <article class="card pick-card">
-          <em>Fastest entry point</em>
-          <h3>Silk tie</h3>
-          <p>
-            The easiest first recommendation for wedding guests, office formality, and celebratory dressing. It feels
-            elevated without asking the shopper to be too adventurous.
-          </p>
-        </article>
-        <article class="card pick-card">
-          <em>Low-risk add-on</em>
-          <h3>Pocket square</h3>
-          <p>
-            Great for gifting or for buyers who want visible refinement without changing the whole outfit equation.
-          </p>
-        </article>
-        <article class="card pick-card">
-          <em>Formal-event closer</em>
-          <h3>Bow tie</h3>
-          <p>
-            Best when the event itself is doing the selling. Black tie, tuxedo dressing, and special occasions make this
-            an easy upgrade from ordinary.
-          </p>
-        </article>
-        <article class="card pick-card">
-          <em>Gift-ready luxury</em>
-          <h3>Accessory-led gifting</h3>
-          <p>
-            The brand's presentation strength makes premium accessories easier to justify as a memorable gift, especially
-            when the shopper wants something personal but polished.
-          </p>
+        <article class="strip-card">
+          <strong>Expand later</strong>
+          <p>Once one room works, the ecosystem story becomes much easier to understand and justify.</p>
         </article>
       </div>
     </section>
@@ -709,35 +627,37 @@
     <section>
       <div class="section-head">
         <div>
-          <div class="eyebrow">Gift Experience</div>
-          <h2>Remove gifting friction before it becomes gift indecision.</h2>
+          <div class="eyebrow">Starter Paths</div>
+          <h2>Give the visitor a first-order lane instead of a full-store maze.</h2>
         </div>
         <p>
-          This is where the official FAQ does real conversion work. Use it to reassure the buyer that the gift already
-          arrives with elegance built in.
+          These are not separate landing pages. They are buying frames that make the official store feel easier to enter.
         </p>
       </div>
-
-      <div class="gift-grid">
-        <article class="card gift-card">
-          <em>Presentation</em>
-          <h3>Signature luxury gift box</h3>
-          <p>Every order is stated to arrive in Serà's signature blue and gold gift box.</p>
+      <div class="starter-grid">
+        <article class="starter-card">
+          <img id="starterScene" loading="lazy" alt="">
+          <em>Best overall</em>
+          <strong>White and color starter kit</strong>
+          <p>Best when the buyer wants visible mood payoff, simple setup logic, and room growth potential.</p>
         </article>
-        <article class="card gift-card">
-          <em>Thoughtful detail</em>
-          <h3>Ribbon and handwritten note</h3>
-          <p>The official FAQ says complimentary gift wrapping and a handwritten note can be requested at checkout.</p>
+        <article class="starter-card">
+          <img id="starterMood" loading="lazy" alt="">
+          <em>Best lifestyle pitch</em>
+          <strong>Mood-lighting story</strong>
+          <p>Great when the room upgrade itself is the real product the user is shopping for.</p>
         </article>
-        <article class="card gift-card">
-          <em>Useful for urgency</em>
-          <h3>Direct shipping to recipient</h3>
-          <p>Gift sending becomes easier because the brand states it can arrange direct shipping to the recipient.</p>
+        <article class="starter-card">
+          <img id="starterBedroom" loading="lazy" alt="">
+          <em>Best daily-use hook</em>
+          <strong>Bedroom routine</strong>
+          <p>Easy to understand, emotionally immediate, and useful for both comfort and daily rhythm messaging.</p>
         </article>
-        <article class="card gift-card">
-          <em>Helpful logistics</em>
-          <h3>Express delivery available</h3>
-          <p>The home and FAQ messaging currently mention express delivery options, which matters for event-led purchases.</p>
+        <article class="starter-card">
+          <img id="starterGaming" loading="lazy" alt="">
+          <em>Best visible transformation</em>
+          <strong>Gaming or entertainment</strong>
+          <p>Strong for traffic that cares about immersion, color, and a room that looks different tonight.</p>
         </article>
       </div>
     </section>
@@ -745,34 +665,84 @@
     <section>
       <div class="section-head">
         <div>
-          <div class="eyebrow">Style Confidence</div>
-          <h2>Give the shopper one polished path instead of asking them to invent one.</h2>
+          <div class="eyebrow">Compare The Pitch</div>
+          <h2>The winning angle is usually simpler than the product catalog.</h2>
         </div>
         <p>
-          This section uses editorial guidance to help the buyer picture the outfit outcome faster.
+          A stronger CPS page does not try to teach everything. It chooses the most convincing first-order story.
         </p>
       </div>
+      <div class="compare-grid">
+        <article class="compare-card">
+          <img id="comparePackshot" loading="lazy" alt="">
+          <em>Catalog story</em>
+          <strong>“Here are the products”</strong>
+          <p>Useful for loyal shoppers, but too open-ended for many first-time paid clicks.</p>
+        </article>
+        <article class="compare-card">
+          <img id="compareLivingroom" loading="lazy" alt="">
+          <em>Winning story</em>
+          <strong>“Here is the room result”</strong>
+          <p>Much easier for newcomers to picture, justify, and act on quickly.</p>
+        </article>
+        <article class="compare-card">
+          <img id="compareSecurity" loading="lazy" alt="">
+          <em>Practical story</em>
+          <strong>Security and routines</strong>
+          <p>Good when the buyer wants the first order to feel useful as well as fun.</p>
+        </article>
+        <article class="compare-card">
+          <img id="compareHome" loading="lazy" alt="">
+          <em>Ecosystem story</em>
+          <strong>Grow one room into more rooms</strong>
+          <p>Strong for users who want to start small without feeling boxed into one device forever.</p>
+        </article>
+      </div>
+    </section>
 
-      <div class="confidence-grid">
-        <article class="card confidence-card">
-          <em>Wedding guest</em>
-          <h3>Navy suit + silk tie + clean pocket square</h3>
-          <p>A safe luxury formula when the shopper wants to look considered without taking fashion risk.</p>
-        </article>
-        <article class="card confidence-card">
-          <em>Black tie</em>
-          <h3>Tuxedo + formal bow tie + disciplined color palette</h3>
-          <p>Perfect when the event itself demands confidence and the buyer wants the elegant answer immediately.</p>
-        </article>
-        <article class="card confidence-card">
-          <em>Gift buyer</em>
-          <h3>Choose the accessory they will actually wear</h3>
-          <p>Pocket squares and ties are easier than guessing sizing-heavy apparel, making them smarter premium gifts.</p>
-        </article>
-        <article class="card confidence-card">
-          <em>Style support</em>
-          <h3>Ask for help, then buy with conviction</h3>
-          <p>The official FAQ explicitly invites shoppers to request advice based on occasion, suit color, and dress code.</p>
+    <section id="scenario-grid">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Room-Based Scenarios</div>
+          <h2>Let the visitor pick the room feeling, then use that to simplify the purchase.</h2>
+        </div>
+        <p>
+          Click a scenario to update the recommendation copy in the page close and sticky CTA.
+        </p>
+      </div>
+      <div class="scenario-shell">
+        <div class="scenario-grid">
+          <article class="scenario-card active" data-scenario-card data-title="Bedroom Wind-Down" data-copy="Lead with calmer evenings, gentler wake-ups, and everyday comfort. This is a great path for first-time buyers who want payoff every single day." data-note="Current recommendation: bedroom-driven traffic should see a starter-kit or warm-to-color room-upgrade path first." data-image="assets/philips-hue/bedroom.jpg">
+            <img id="scenarioBedroom" loading="lazy" alt="">
+            <small>Daily payoff</small>
+            <h3>Bedroom Wind-Down</h3>
+            <p>Comfort, routines, and softer light make Hue feel useful before it feels technical.</p>
+          </article>
+          <article class="scenario-card" data-scenario-card data-title="Living Room Movie Night" data-copy="Lead with atmosphere, entertainment, and a room that instantly feels more cinematic. This is ideal for couples, hosts, and evening-heavy households." data-note="Current recommendation: living-room traffic should see entertainment scenes and bundle-friendly room imagery early." data-image="assets/philips-hue/starter-livingroom.jpg">
+            <img id="scenarioLivingroom" loading="lazy" alt="">
+            <small>Entertainment hook</small>
+            <h3>Living Room Movie Night</h3>
+            <p>One of the easiest ways to make the product feel fun, immersive, and worth the premium.</p>
+          </article>
+          <article class="scenario-card" data-scenario-card data-title="Gaming Setup Glow" data-copy="Lead with color, immersion, and visible transformation. This path sells because the room changes are obvious immediately." data-note="Current recommendation: gaming traffic should be pushed toward color-capable starter kits and immersive room setups." data-image="assets/philips-hue/gaming.jpg">
+            <img id="scenarioGaming" loading="lazy" alt="">
+            <small>Most visual</small>
+            <h3>Gaming Setup Glow</h3>
+            <p>Perfect for users who want a room to look upgraded, not just function a little better.</p>
+          </article>
+          <article class="scenario-card" data-scenario-card data-title="Entryway Confidence" data-copy="Lead with routines, smart arrival moments, and a more secure-feeling home. This helps first orders feel practical, not just decorative." data-note="Current recommendation: security-curious traffic should see practical benefits and trust cues before advanced ecosystem messaging." data-image="assets/philips-hue/security.jpg">
+            <img id="scenarioSecurity" loading="lazy" alt="">
+            <small>Practical value</small>
+            <h3>Entryway Confidence</h3>
+            <p>Smart-home skeptics often respond better when the first use case feels practical and protective.</p>
+          </article>
+        </div>
+
+        <article class="scenario-output">
+          <div class="eyebrow">Current recommendation</div>
+          <strong id="scenarioTitle">Bedroom Wind-Down</strong>
+          <p id="scenarioCopy">Lead with calmer evenings, gentler wake-ups, and everyday comfort. This is a great path for first-time buyers who want payoff every single day.</p>
+          <img id="scenarioPreview" loading="lazy" alt="">
         </article>
       </div>
     </section>
@@ -781,86 +751,134 @@
       <div class="section-head">
         <div>
           <div class="eyebrow">FAQ</div>
-          <h2>Answer the luxury-buyer questions before they slow the order.</h2>
+          <h2>Answer the first-order questions, not the entire smart-home universe.</h2>
         </div>
         <p>
-          These answers come from currently verified brand and FAQ messaging, combined with clearly framed editorial guidance.
+          The goal is to shorten the first purchase path and let deeper research happen later.
         </p>
       </div>
-
       <div class="faq-grid">
         <div class="faq-card">
           <details open>
-            <summary>What makes Serà feel premium enough for a special occasion?</summary>
-            <p>The official brand story anchors the products in Milan design and Como silk craftsmanship, which gives the purchase a stronger sense of place and quality.</p>
+            <summary>What should most new buyers start with?</summary>
+            <p>A starter kit or room bundle gives a more complete first experience than buying one bulb in isolation.</p>
           </details>
         </div>
         <div class="faq-card">
           <details>
-            <summary>Can I send this as a gift?</summary>
-            <p>Yes. The official FAQ says orders arrive in the signature gift box and that ribbon, a handwritten note, and direct shipping to the recipient can be arranged.</p>
+            <summary>Why does this page focus on rooms instead of specs?</summary>
+            <p>Because the most persuasive first-order question is usually “what change do I want in my space?” rather than “which protocol should I compare?”</p>
           </details>
         </div>
         <div class="faq-card">
           <details>
-            <summary>What if I do not know what to choose?</summary>
-            <p>The official FAQ invites you to ask for styling advice based on the occasion, your suit color, and the dress code.</p>
-          </details>
-        </div>
-        <div class="faq-card">
-          <details>
-            <summary>Is there a useful shipping threshold?</summary>
-            <p>The homepage currently promotes free shipping on orders over 200€ in the EU, USA, and Canada, with express delivery available.</p>
-          </details>
-        </div>
-        <div class="faq-card">
-          <details>
-            <summary>What is the fastest-converting first recommendation?</summary>
-            <p>For most paid traffic, a silk tie or pocket square is the easiest first step because it keeps the purchase elegant but not complicated.</p>
-          </details>
-        </div>
-        <div class="faq-card">
-          <details>
-            <summary>Who is this page best for?</summary>
-            <p>This page is strongest for wedding guest traffic, refined gifting traffic, and buyers who want one elevated formalwear decision rather than a whole outfit build.</p>
+            <summary>What trust cues help paid traffic most?</summary>
+            <p>Official shipping, return, warranty, financing, and ecosystem compatibility cues do more to close first orders than long technical explanations.</p>
           </details>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="cta-band">
+      <div class="closing-card">
         <div>
           <div class="eyebrow">Final Push</div>
-          <h2 style="max-width:none;">Buy the piece that makes the outfit feel finished before you keep searching and dilute the moment.</h2>
-          <p id="ctaOccasionNote">
-            Current recommendation: start with wedding guest or formal-event traffic, where a single elegant accessory can close the decision quickly.
-          </p>
+          <h2 style="max-width:none;">Pick the room you want to improve most, then let the official store handle the exact kit or bundle.</h2>
+          <p id="closingScenarioNote">Current recommendation: bedroom-driven traffic should see a starter-kit or warm-to-color room-upgrade path first.</p>
         </div>
-        <a class="button button-primary" data-aff-link href="#">Shop the occasion edit</a>
+        <a class="button button-primary" data-aff-link href="#">Start with Hue</a>
       </div>
     </section>
   </main>
 
   <div class="sticky">
     <div class="sticky-card">
-      <div class="sticky-copy">
-        <strong id="stickyOfferTitle">Serà Fine Silk</strong>
-        <span id="stickyOccasionNote">Wedding guest edit currently selected.</span>
+      <div class="sticky-info">
+        <div class="sticky-thumb"><img id="stickyThumb" alt=""></div>
+        <div class="sticky-copy">
+          <strong id="stickyOfferTitle">Philips Hue US</strong>
+          <span id="stickyOfferNote">Current recommendation: bedroom-driven traffic should see a starter-kit or warm-to-color room-upgrade path first.</span>
+        </div>
       </div>
-      <a class="button button-primary" data-aff-link href="#">Explore Serà</a>
+      <a class="button button-primary" data-aff-link href="#">Shop now</a>
     </div>
   </div>
 
   <script>
-    const AFFILIATE_URL = "https://www.serafinesilk.com";
-    const PRIMARY_OFFER_TITLE = "Serà Fine Silk";
-    const SECONDARY_CTA_TEXT = "Shop Serà Fine Silk";
-    const FACTS = {
-      origin: "Designed in Milan, crafted in Como",
-      shipping: "Free shipping on orders over 200€ in the EU, USA, and Canada",
-      gifting: "Signature blue and gold gift box with optional gift wrapping and handwritten note"
+    const AFFILIATE_URL = "https://www.philips-hue.com/en-us";
+    const PRIMARY_OFFER_TITLE = "Philips Hue US";
+    const SECONDARY_CTA_TEXT = "Shop Philips Hue";
+    const PAGE_META = {
+      shipping: "Free shipping over $49.99",
+      returns: "Free returns for 30 days",
+      warranty: "2-year warranty"
     };
+    const MEDIA = {
+      hero: {
+        src: "assets/philips-hue/home-hero.jpg",
+        alt: "Philips Hue lifestyle home scene"
+      },
+      packshot: {
+        src: "assets/philips-hue/starter-category.jpg",
+        alt: "Philips Hue starter kit packshot-style product image"
+      },
+      starter: {
+        livingroom: {
+          src: "assets/philips-hue/starter-livingroom.jpg",
+          alt: "Philips Hue starter kit living room scene"
+        },
+        mood: {
+          src: "assets/philips-hue/mood-hero.jpg",
+          alt: "Philips Hue mood lighting image"
+        },
+        bedroom: {
+          src: "assets/philips-hue/bedroom.jpg",
+          alt: "Philips Hue bedroom lighting image"
+        },
+        gaming: {
+          src: "assets/philips-hue/gaming.jpg",
+          alt: "Philips Hue gaming room image"
+        },
+        security: {
+          src: "assets/philips-hue/security.jpg",
+          alt: "Philips Hue security and practical-use image"
+        },
+        home: {
+          src: "assets/philips-hue/home-hero.jpg",
+          alt: "Philips Hue connected home image"
+        }
+      },
+      sticky: {
+        src: "assets/philips-hue/starter-livingroom.jpg",
+        alt: "Philips Hue sticky CTA thumbnail"
+      }
+    };
+
+    const imageBindings = {
+      heroImage: MEDIA.hero,
+      packshotImage: MEDIA.packshot,
+      starterScene: MEDIA.starter.livingroom,
+      starterMood: MEDIA.starter.mood,
+      starterBedroom: MEDIA.starter.bedroom,
+      starterGaming: MEDIA.starter.gaming,
+      comparePackshot: MEDIA.packshot,
+      compareLivingroom: MEDIA.starter.livingroom,
+      compareSecurity: MEDIA.starter.security,
+      compareHome: MEDIA.starter.home,
+      scenarioBedroom: MEDIA.starter.bedroom,
+      scenarioLivingroom: MEDIA.starter.livingroom,
+      scenarioGaming: MEDIA.starter.gaming,
+      scenarioSecurity: MEDIA.starter.security,
+      scenarioPreview: MEDIA.starter.bedroom,
+      stickyThumb: MEDIA.sticky
+    };
+
+    Object.entries(imageBindings).forEach(([id, asset]) => {
+      const img = document.getElementById(id);
+      if (!img) return;
+      img.src = asset.src;
+      img.alt = asset.alt;
+    });
 
     document.querySelectorAll("[data-aff-link]").forEach((link) => {
       link.href = AFFILIATE_URL;
@@ -871,16 +889,17 @@
 
     document.getElementById("stickyOfferTitle").textContent = PRIMARY_OFFER_TITLE;
 
-    document.querySelectorAll("[data-occasion]").forEach((button) => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll("[data-occasion]").forEach((item) => item.classList.remove("active"));
-        button.classList.add("active");
-
-        document.getElementById("occasionTitle").textContent = button.dataset.title;
-        document.getElementById("occasionCopy").textContent = button.dataset.copy;
-        document.getElementById("heroOccasionNote").textContent = "Recommended angle: " + button.dataset.copy;
-        document.getElementById("stickyOccasionNote").textContent = button.dataset.sticky + " currently selected.";
-        document.getElementById("ctaOccasionNote").textContent = "Current recommendation: " + button.dataset.copy;
+    document.querySelectorAll("[data-scenario-card]").forEach((card) => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll("[data-scenario-card]").forEach((node) => node.classList.remove("active"));
+        card.classList.add("active");
+        document.getElementById("scenarioTitle").textContent = card.dataset.title;
+        document.getElementById("scenarioCopy").textContent = card.dataset.copy;
+        document.getElementById("heroScenarioNote").textContent = "Recommended angle: " + card.dataset.copy;
+        document.getElementById("closingScenarioNote").textContent = card.dataset.note;
+        document.getElementById("stickyOfferNote").textContent = card.dataset.note;
+        const preview = document.getElementById("scenarioPreview");
+        preview.src = card.dataset.image;
       });
     });
   </script>
