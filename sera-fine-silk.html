@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serà Fine Silk | Gift-Ready Formalwear CPS Landing Page</title>
+  <style>
+    :root {
+      --bg: #f5eee6;
+      --paper: rgba(255, 250, 244, 0.92);
+      --paper-strong: #fff9f2;
+      --text: #2d1f1b;
+      --muted: #6e5a53;
+      --line: rgba(81, 55, 44, 0.14);
+      --accent: #7a243d;
+      --accent-2: #c48a3a;
+      --ink: #1c1513;
+      --shadow: 0 22px 50px rgba(74, 46, 36, 0.12);
+      --radius-lg: 30px;
+      --radius-md: 22px;
+      --radius-sm: 14px;
+      --max: 1180px;
+      --heading: Baskerville, "Palatino Linotype", "Book Antiqua", serif;
+      --body: "Avenir Next", Candara, "Trebuchet MS", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--body);
+      background:
+        radial-gradient(circle at 10% 18%, rgba(196, 138, 58, 0.17), transparent 25%),
+        radial-gradient(circle at 88% 10%, rgba(122, 36, 61, 0.14), transparent 28%),
+        linear-gradient(180deg, #f5eee6 0%, #efe3d7 48%, #f7f0e9 100%);
+      line-height: 1.65;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(122, 36, 61, 0.03), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(196, 138, 58, 0.1), transparent 22%);
+      opacity: 0.9;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.19em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 28px 0 86px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+
+    .brand {
+      font-family: var(--heading);
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .top-note {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(122, 36, 61, 0.12);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
+    }
+
+    .hero-copy,
+    .hero-panel,
+    .card,
+    .faq-card,
+    .sticky-card {
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(145deg, rgba(255, 249, 242, 0.96), rgba(255, 251, 247, 0.9)),
+        radial-gradient(circle at top right, rgba(196, 138, 58, 0.12), transparent 40%);
+      border: 1px solid rgba(122, 36, 61, 0.12);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      font-family: var(--heading);
+      line-height: 1.08;
+    }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(2.7rem, 5vw, 5.2rem);
+      max-width: 11ch;
+      color: var(--ink);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3.3vw, 3.1rem);
+      max-width: 12ch;
+      color: var(--ink);
+    }
+
+    .lead {
+      margin: 18px 0 24px;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .chip-row,
+    .why-grid,
+    .occasion-grid,
+    .pick-grid,
+    .gift-grid,
+    .confidence-grid,
+    .faq-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .chip-row {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-bottom: 26px;
+    }
+
+    .chip {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(122, 36, 61, 0.1);
+    }
+
+    .chip strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: var(--heading);
+      font-size: 1.18rem;
+      color: var(--ink);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      font-family: var(--body);
+      font-size: 0.94rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .button:hover,
+    .button:focus-visible { transform: translateY(-2px); }
+
+    .button-primary {
+      color: #fff8f0;
+      background: linear-gradient(135deg, var(--accent), #5d1a30);
+      box-shadow: 0 18px 34px rgba(122, 36, 61, 0.22);
+    }
+
+    .button-secondary {
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(122, 36, 61, 0.14);
+    }
+
+    .microcopy {
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .hero-panel {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(244, 236, 227, 0.96)),
+        radial-gradient(circle at top, rgba(196, 138, 58, 0.12), transparent 44%);
+      border: 1px solid rgba(122, 36, 61, 0.12);
+      display: grid;
+      gap: 18px;
+      align-content: start;
+    }
+
+    .panel-frame {
+      padding: 22px;
+      border-radius: 22px;
+      background:
+        linear-gradient(140deg, rgba(122, 36, 61, 0.92), rgba(41, 25, 26, 0.92)),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.14), transparent 34%);
+      color: #fff7ee;
+      position: relative;
+      overflow: hidden;
+      min-height: 300px;
+      display: grid;
+      align-content: end;
+    }
+
+    .panel-frame::before,
+    .panel-frame::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      filter: blur(4px);
+    }
+
+    .panel-frame::before {
+      width: 240px;
+      height: 240px;
+      top: -90px;
+      right: -60px;
+    }
+
+    .panel-frame::after {
+      width: 180px;
+      height: 180px;
+      bottom: -80px;
+      left: -30px;
+    }
+
+    .panel-frame h2 {
+      color: #fff7ee;
+      max-width: 10ch;
+    }
+
+    .panel-frame p {
+      margin: 12px 0 0;
+      max-width: 38ch;
+      color: rgba(255, 247, 238, 0.88);
+    }
+
+    section { padding: 0 0 76px; }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    .section-head p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+
+    .why-grid,
+    .gift-grid,
+    .faq-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .occasion-grid,
+    .pick-grid,
+    .confidence-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card,
+    .faq-card {
+      padding: 24px;
+      border-radius: var(--radius-md);
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .card h3,
+    .faq-card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .card p,
+    .faq-card p,
+    .faq-card li {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .occasion-button {
+      appearance: none;
+      border: 1px solid rgba(122, 36, 61, 0.12);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.65);
+      padding: 20px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+      color: inherit;
+      box-shadow: var(--shadow);
+    }
+
+    .occasion-button:hover,
+    .occasion-button:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .occasion-button.active {
+      border-color: rgba(122, 36, 61, 0.8);
+      background: linear-gradient(180deg, rgba(255, 249, 243, 0.98), rgba(247, 239, 230, 0.96));
+    }
+
+    .occasion-button strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: var(--heading);
+      font-size: 1.24rem;
+      color: var(--ink);
+    }
+
+    .occasion-output {
+      margin-top: 18px;
+      padding: 22px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(122, 36, 61, 0.08), rgba(196, 138, 58, 0.08)),
+        rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(122, 36, 61, 0.12);
+    }
+
+    .occasion-output strong {
+      display: block;
+      font-family: var(--heading);
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+      color: var(--ink);
+    }
+
+    .pick-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pick-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .pick-card em,
+    .gift-card em,
+    .confidence-card em {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-style: normal;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    details {
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-family: var(--heading);
+      font-size: 1.06rem;
+      list-style: none;
+      color: var(--ink);
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    details p {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .cta-band {
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(122, 36, 61, 0.12), rgba(196, 138, 58, 0.12)),
+        rgba(255, 250, 244, 0.96);
+      border: 1px solid rgba(122, 36, 61, 0.12);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-band p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+
+    .sticky {
+      position: fixed;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      width: min(940px, calc(100% - 20px));
+      z-index: 30;
+    }
+
+    .sticky-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255, 251, 247, 0.94);
+      border: 1px solid rgba(122, 36, 61, 0.12);
+    }
+
+    .sticky-copy strong {
+      display: block;
+      font-family: var(--heading);
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .sticky-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .why-grid,
+      .occasion-grid,
+      .pick-grid,
+      .gift-grid,
+      .confidence-grid,
+      .faq-grid,
+      .cta-band {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head { align-items: start; }
+      .chip-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding-bottom: 108px; }
+      .hero-copy,
+      .hero-panel,
+      .card,
+      .faq-card,
+      .cta-band {
+        padding: 22px;
+      }
+
+      .topbar {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .sticky-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">Serà Fine Silk Occasion Guide</div>
+        <div class="top-note">Gift-ready formalwear positioning for high-intent style traffic</div>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Wedding / gift / formal occasion angle</div>
+          <h1>When the moment matters, wear silk that already feels like a gift.</h1>
+          <p class="lead">
+            The fastest way to convert premium style traffic is not to show everything. It is to make the visitor feel
+            elegantly understood. This page narrows Serà Fine Silk into the occasions where beautiful decisions happen faster.
+          </p>
+
+          <div class="chip-row">
+            <div class="chip">
+              <strong>Designed in Milan</strong>
+              Produced in Como with a Made in Italy story that already carries emotional weight.
+            </div>
+            <div class="chip">
+              <strong>Gift-ready</strong>
+              Official FAQ language confirms the signature blue and gold luxury gift box.
+            </div>
+            <div class="chip">
+              <strong>Style support</strong>
+              The official FAQ invites shoppers to ask for advice by occasion, suit color, and dress code.
+            </div>
+          </div>
+
+          <div class="cta-row">
+            <a class="button button-primary" data-aff-link href="#">Shop Serà Fine Silk</a>
+            <a class="button button-secondary" href="#occasion-selector">Find your occasion fit</a>
+          </div>
+          <p class="microcopy" id="heroOccasionNote">Recommended angle: wedding guest and formal-event traffic, where the page can shorten the styling decision.</p>
+        </div>
+
+        <aside class="hero-panel">
+          <div class="panel-frame">
+            <div class="eyebrow" style="color:#f6d69b;">Why this page can convert</div>
+            <h2>Luxury feels easier when the choice already feels styled.</h2>
+            <p>
+              Serà works best when the visitor is not browsing for "menswear" in general, but shopping for one polished
+              moment: a wedding, a black-tie event, or a meaningful gift.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Verified commercial strengths</h3>
+            <p>
+              The spreadsheet shows low cancellation pressure and solid payment speed for a premium retail program.
+              That makes it a good supplemental CPS test when the page handles choice anxiety properly.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Why Serà</div>
+          <h2>Three reasons this brand can earn a quicker yes than a giant catalog.</h2>
+        </div>
+        <p>
+          The official site already gives you the right trust ingredients. The pre-sell job is to surface them in the
+          order a paid visitor needs to see them.
+        </p>
+      </div>
+
+      <div class="why-grid">
+        <article class="card">
+          <h3>Italian craftsmanship without generic luxury copy</h3>
+          <p>
+            The official brand story is specific: designed in Milan, crafted in Como, rooted in Italian silk production.
+            That makes the premium position feel tangible instead of vague.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Gift presentation is already part of the product story</h3>
+          <p>
+            The official FAQ confirms a signature blue and gold gift box, optional gift wrapping, and handwritten note support.
+            That lowers gifting friction immediately.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Styling support reduces the hardest part of the purchase</h3>
+          <p>
+            Serà explicitly offers styling help by occasion and dress code. That is valuable because premium accessory buyers
+            often hesitate longer over selection than over desire.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="occasion-selector">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Occasion Selector</div>
+          <h2>Start with the event. The right product choice becomes obvious.</h2>
+        </div>
+        <p>
+          These are editorial starting points built around the official category mix: ties, pocket squares, bow ties,
+          and gift-ready accessories.
+        </p>
+      </div>
+
+      <div class="occasion-grid">
+        <button class="occasion-button active" type="button" data-occasion data-title="Wedding Guest" data-copy="Start with a silk tie or pocket square that lifts the suit without overpowering it. This is the safest high-intent entry point." data-sticky="Wedding guest edit">
+          <strong>Wedding Guest</strong>
+          For polished celebration dressing that still feels effortless.
+        </button>
+        <button class="occasion-button" type="button" data-occasion data-title="Groom / Black Tie" data-copy="Lead with a bow tie, formal silk accents, and a confidence-first message. In this mode the buyer wants elegance, not experimentation." data-sticky="Formal event edit">
+          <strong>Groom / Black Tie</strong>
+          For moments that need more ceremony and less second-guessing.
+        </button>
+        <button class="occasion-button" type="button" data-occasion data-title="Meaningful Gift" data-copy="Use the gift box, handwritten note, and direct-to-recipient capabilities as the conversion shortcut. This buyer wants beautiful and done-for-them." data-sticky="Gift-ready edit">
+          <strong>Meaningful Gift</strong>
+          For birthdays, anniversaries, thank-yous, and refined last-minute wins.
+        </button>
+        <button class="occasion-button" type="button" data-occasion data-title="Personal Style Upgrade" data-copy="Lead with one versatile hero accessory that instantly changes a navy blazer or white shirt. This audience wants visible payoff from one item." data-sticky="Style-upgrade edit">
+          <strong>Personal Style Upgrade</strong>
+          For shoppers who want one sharper detail, not a whole new wardrobe.
+        </button>
+      </div>
+
+      <div class="occasion-output">
+        <div class="eyebrow">Current recommendation</div>
+        <strong id="occasionTitle">Wedding Guest</strong>
+        <p id="occasionCopy">
+          Start with a silk tie or pocket square that lifts the suit without overpowering it. This is the safest
+          high-intent entry point.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Curated Picks</div>
+          <h2>Show fewer product paths, but make each one feel easier to buy.</h2>
+        </div>
+        <p>
+          These cards are not a full catalog. They are the fastest routes into the brand for users who need a confident first choice.
+        </p>
+      </div>
+
+      <div class="pick-grid">
+        <article class="card pick-card">
+          <em>Fastest entry point</em>
+          <h3>Silk tie</h3>
+          <p>
+            The easiest first recommendation for wedding guests, office formality, and celebratory dressing. It feels
+            elevated without asking the shopper to be too adventurous.
+          </p>
+        </article>
+        <article class="card pick-card">
+          <em>Low-risk add-on</em>
+          <h3>Pocket square</h3>
+          <p>
+            Great for gifting or for buyers who want visible refinement without changing the whole outfit equation.
+          </p>
+        </article>
+        <article class="card pick-card">
+          <em>Formal-event closer</em>
+          <h3>Bow tie</h3>
+          <p>
+            Best when the event itself is doing the selling. Black tie, tuxedo dressing, and special occasions make this
+            an easy upgrade from ordinary.
+          </p>
+        </article>
+        <article class="card pick-card">
+          <em>Gift-ready luxury</em>
+          <h3>Accessory-led gifting</h3>
+          <p>
+            The brand's presentation strength makes premium accessories easier to justify as a memorable gift, especially
+            when the shopper wants something personal but polished.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Gift Experience</div>
+          <h2>Remove gifting friction before it becomes gift indecision.</h2>
+        </div>
+        <p>
+          This is where the official FAQ does real conversion work. Use it to reassure the buyer that the gift already
+          arrives with elegance built in.
+        </p>
+      </div>
+
+      <div class="gift-grid">
+        <article class="card gift-card">
+          <em>Presentation</em>
+          <h3>Signature luxury gift box</h3>
+          <p>Every order is stated to arrive in Serà's signature blue and gold gift box.</p>
+        </article>
+        <article class="card gift-card">
+          <em>Thoughtful detail</em>
+          <h3>Ribbon and handwritten note</h3>
+          <p>The official FAQ says complimentary gift wrapping and a handwritten note can be requested at checkout.</p>
+        </article>
+        <article class="card gift-card">
+          <em>Useful for urgency</em>
+          <h3>Direct shipping to recipient</h3>
+          <p>Gift sending becomes easier because the brand states it can arrange direct shipping to the recipient.</p>
+        </article>
+        <article class="card gift-card">
+          <em>Helpful logistics</em>
+          <h3>Express delivery available</h3>
+          <p>The home and FAQ messaging currently mention express delivery options, which matters for event-led purchases.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Style Confidence</div>
+          <h2>Give the shopper one polished path instead of asking them to invent one.</h2>
+        </div>
+        <p>
+          This section uses editorial guidance to help the buyer picture the outfit outcome faster.
+        </p>
+      </div>
+
+      <div class="confidence-grid">
+        <article class="card confidence-card">
+          <em>Wedding guest</em>
+          <h3>Navy suit + silk tie + clean pocket square</h3>
+          <p>A safe luxury formula when the shopper wants to look considered without taking fashion risk.</p>
+        </article>
+        <article class="card confidence-card">
+          <em>Black tie</em>
+          <h3>Tuxedo + formal bow tie + disciplined color palette</h3>
+          <p>Perfect when the event itself demands confidence and the buyer wants the elegant answer immediately.</p>
+        </article>
+        <article class="card confidence-card">
+          <em>Gift buyer</em>
+          <h3>Choose the accessory they will actually wear</h3>
+          <p>Pocket squares and ties are easier than guessing sizing-heavy apparel, making them smarter premium gifts.</p>
+        </article>
+        <article class="card confidence-card">
+          <em>Style support</em>
+          <h3>Ask for help, then buy with conviction</h3>
+          <p>The official FAQ explicitly invites shoppers to request advice based on occasion, suit color, and dress code.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">FAQ</div>
+          <h2>Answer the luxury-buyer questions before they slow the order.</h2>
+        </div>
+        <p>
+          These answers come from currently verified brand and FAQ messaging, combined with clearly framed editorial guidance.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-card">
+          <details open>
+            <summary>What makes Serà feel premium enough for a special occasion?</summary>
+            <p>The official brand story anchors the products in Milan design and Como silk craftsmanship, which gives the purchase a stronger sense of place and quality.</p>
+          </details>
+        </div>
+        <div class="faq-card">
+          <details>
+            <summary>Can I send this as a gift?</summary>
+            <p>Yes. The official FAQ says orders arrive in the signature gift box and that ribbon, a handwritten note, and direct shipping to the recipient can be arranged.</p>
+          </details>
+        </div>
+        <div class="faq-card">
+          <details>
+            <summary>What if I do not know what to choose?</summary>
+            <p>The official FAQ invites you to ask for styling advice based on the occasion, your suit color, and the dress code.</p>
+          </details>
+        </div>
+        <div class="faq-card">
+          <details>
+            <summary>Is there a useful shipping threshold?</summary>
+            <p>The homepage currently promotes free shipping on orders over 200€ in the EU, USA, and Canada, with express delivery available.</p>
+          </details>
+        </div>
+        <div class="faq-card">
+          <details>
+            <summary>What is the fastest-converting first recommendation?</summary>
+            <p>For most paid traffic, a silk tie or pocket square is the easiest first step because it keeps the purchase elegant but not complicated.</p>
+          </details>
+        </div>
+        <div class="faq-card">
+          <details>
+            <summary>Who is this page best for?</summary>
+            <p>This page is strongest for wedding guest traffic, refined gifting traffic, and buyers who want one elevated formalwear decision rather than a whole outfit build.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="cta-band">
+        <div>
+          <div class="eyebrow">Final Push</div>
+          <h2 style="max-width:none;">Buy the piece that makes the outfit feel finished before you keep searching and dilute the moment.</h2>
+          <p id="ctaOccasionNote">
+            Current recommendation: start with wedding guest or formal-event traffic, where a single elegant accessory can close the decision quickly.
+          </p>
+        </div>
+        <a class="button button-primary" data-aff-link href="#">Shop the occasion edit</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky">
+    <div class="sticky-card">
+      <div class="sticky-copy">
+        <strong id="stickyOfferTitle">Serà Fine Silk</strong>
+        <span id="stickyOccasionNote">Wedding guest edit currently selected.</span>
+      </div>
+      <a class="button button-primary" data-aff-link href="#">Explore Serà</a>
+    </div>
+  </div>
+
+  <script>
+    const AFFILIATE_URL = "https://www.serafinesilk.com";
+    const PRIMARY_OFFER_TITLE = "Serà Fine Silk";
+    const SECONDARY_CTA_TEXT = "Shop Serà Fine Silk";
+    const FACTS = {
+      origin: "Designed in Milan, crafted in Como",
+      shipping: "Free shipping on orders over 200€ in the EU, USA, and Canada",
+      gifting: "Signature blue and gold gift box with optional gift wrapping and handwritten note"
+    };
+
+    document.querySelectorAll("[data-aff-link]").forEach((link) => {
+      link.href = AFFILIATE_URL;
+      if (!link.textContent.trim()) {
+        link.textContent = SECONDARY_CTA_TEXT;
+      }
+    });
+
+    document.getElementById("stickyOfferTitle").textContent = PRIMARY_OFFER_TITLE;
+
+    document.querySelectorAll("[data-occasion]").forEach((button) => {
+      button.addEventListener("click", () => {
+        document.querySelectorAll("[data-occasion]").forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+
+        document.getElementById("occasionTitle").textContent = button.dataset.title;
+        document.getElementById("occasionCopy").textContent = button.dataset.copy;
+        document.getElementById("heroOccasionNote").textContent = "Recommended angle: " + button.dataset.copy;
+        document.getElementById("stickyOccasionNote").textContent = button.dataset.sticky + " currently selected.";
+        document.getElementById("ctaOccasionNote").textContent = "Current recommendation: " + button.dataset.copy;
+      });
+    });
+  </script>
+</body>
+</html>
