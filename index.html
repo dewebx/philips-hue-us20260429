@@ -3,23 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Philips Hue US | Starter Kit Guide</title>
+  <title>Philips Hue US | Setup Finder</title>
   <style>
     :root {
-      --bg: #eef4ff;
-      --paper: #ffffff;
-      --paper-soft: #f3f8ff;
-      --ink: #10213f;
-      --muted: #556785;
-      --line: #d9e4f3;
-      --blue: #0d63ff;
-      --teal: #10cbbb;
-      --violet: #7b78ff;
-      --shadow: 0 22px 46px rgba(18, 44, 90, 0.12);
+      --bg: #07111f;
+      --panel: rgba(13, 24, 42, 0.88);
+      --panel-2: rgba(9, 18, 33, 0.94);
+      --line: rgba(175, 205, 255, 0.14);
+      --ink: #eef4ff;
+      --muted: #9fb1cf;
+      --blue: #5aa5ff;
+      --teal: #2be1d5;
+      --violet: #9788ff;
+      --shadow: 0 28px 56px rgba(0, 0, 0, 0.28);
       --radius-xl: 28px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --max: 1180px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max: 1260px;
       --heading: "Gill Sans", "Trebuchet MS", sans-serif;
       --body: "Trebuchet MS", "Segoe UI", sans-serif;
     }
@@ -32,31 +32,22 @@
       color: var(--ink);
       font-family: var(--body);
       background:
-        radial-gradient(circle at top left, rgba(16, 203, 187, 0.13), transparent 20%),
-        radial-gradient(circle at top right, rgba(123, 120, 255, 0.1), transparent 20%),
-        linear-gradient(180deg, #f5f9ff 0%, var(--bg) 100%);
-      line-height: 1.62;
+        radial-gradient(circle at 0% 0%, rgba(43, 225, 213, 0.16), transparent 24%),
+        radial-gradient(circle at 100% 0%, rgba(151, 136, 255, 0.16), transparent 24%),
+        linear-gradient(180deg, #0b1525 0%, var(--bg) 100%);
+      line-height: 1.45;
     }
 
     a { color: inherit; text-decoration: none; }
     img { display: block; width: 100%; }
 
     .wrap {
-      width: min(var(--max), calc(100% - 32px));
+      width: min(var(--max), calc(100% - 28px));
       margin: 0 auto;
     }
 
-    .eyebrow {
-      display: inline-block;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      color: var(--blue);
-      font-weight: 700;
-    }
-
     .topbar {
-      padding: 22px 0 18px;
+      padding: 20px 0 18px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -65,561 +56,488 @@
 
     .brand {
       font-family: var(--heading);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
       font-size: 1rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
     }
 
-    .top-note {
+    .topmeta {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--line);
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
-    .hero {
-      padding-bottom: 64px;
+    .dashboard {
+      padding-bottom: 60px;
     }
 
-    .hero-grid {
+    .dashboard-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-      gap: 24px;
+      grid-template-columns: minmax(0, 1.1fr) minmax(330px, 0.9fr);
+      gap: 18px;
       align-items: stretch;
     }
 
-    .hero-main,
-    .evidence-card,
-    .strip-card,
-    .starter-card,
+    .preview-screen,
+    .control-panel,
+    .path-card,
     .compare-card,
-    .scenario-card,
-    .scenario-output,
+    .trust-pill,
     .faq-card,
-    .sticky-card,
-    .closing-card {
-      background: var(--paper);
+    .dock {
+      background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
     }
 
-    .hero-main {
+    .preview-screen {
+      border-radius: var(--radius-xl);
       overflow: hidden;
-    }
-
-    .hero-scene {
+      min-height: 720px;
       position: relative;
-      min-height: 380px;
-      background: #d9e5f4;
     }
 
-    .hero-scene img {
+    .preview-image {
       position: absolute;
       inset: 0;
+    }
+
+    .preview-image img {
       height: 100%;
       object-fit: cover;
     }
 
-    .hero-glow {
+    .preview-copy {
       position: absolute;
-      inset: auto 18px 18px 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      inset: auto 24px 24px 24px;
+      display: grid;
+      gap: 14px;
+      max-width: 520px;
     }
 
-    .hero-glow span {
-      padding: 9px 12px;
+    .eyebrow {
+      display: inline-block;
+      width: fit-content;
+      padding: 8px 12px;
       border-radius: 999px;
+      background: rgba(8, 15, 29, 0.68);
       color: #fff;
-      background: rgba(12, 20, 36, 0.72);
-      backdrop-filter: blur(12px);
-      font-size: 0.86rem;
-    }
-
-    .hero-copy {
-      padding: 28px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+      backdrop-filter: blur(10px);
     }
 
     h1, h2, h3 {
       margin: 0;
       font-family: var(--heading);
-      line-height: 1.06;
+      line-height: 1.02;
     }
 
     h1 {
-      margin-top: 12px;
-      font-size: clamp(2.7rem, 5vw, 4.9rem);
-      max-width: 11ch;
+      color: #fff;
+      font-size: clamp(3rem, 5vw, 5.2rem);
+      max-width: 8ch;
+      text-shadow: 0 10px 28px rgba(0, 0, 0, 0.26);
     }
 
     h2 {
-      font-size: clamp(1.8rem, 3vw, 3rem);
-      max-width: 12ch;
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      max-width: 11ch;
     }
 
-    p {
-      margin: 0;
-      color: var(--muted);
+    p { margin: 0; color: var(--muted); }
+
+    .preview-note {
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 40ch;
     }
 
-    .lead {
-      margin-top: 16px;
-      max-width: 58ch;
-      font-size: 1.05rem;
-    }
-
-    .trust-row {
-      margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .trust-row span {
-      padding: 9px 12px;
-      border-radius: 999px;
-      background: var(--paper-soft);
-      border: 1px solid var(--line);
-      color: var(--ink);
-      font-size: 0.9rem;
-    }
-
-    .cta-row {
-      margin-top: 24px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .button {
-      min-height: 52px;
-      padding: 0 22px;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid transparent;
-      transition: transform 180ms ease, box-shadow 180ms ease;
-      cursor: pointer;
-    }
-
-    .button:hover,
-    .button:focus-visible { transform: translateY(-2px); }
-
-    .button-primary {
-      background: linear-gradient(135deg, var(--blue), var(--violet));
-      color: #fff;
-      box-shadow: 0 16px 28px rgba(13, 99, 255, 0.18);
-    }
-
-    .button-secondary {
-      background: #fff;
-      color: var(--ink);
-      border-color: var(--line);
-    }
-
-    .evidence-card {
+    .control-panel {
+      border-radius: var(--radius-xl);
       padding: 22px;
       display: grid;
       gap: 18px;
       align-content: start;
+      background: var(--panel-2);
     }
 
-    .evidence-top {
+    .control-top {
       display: grid;
-      grid-template-columns: 1fr 120px;
-      gap: 16px;
+      grid-template-columns: 1fr 110px;
+      gap: 14px;
       align-items: center;
     }
 
-    .evidence-top img {
-      border-radius: 18px;
-      background: #eef4ff;
-      padding: 10px;
+    .control-top img {
       aspect-ratio: 1 / 1;
       object-fit: cover;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 8px;
     }
 
-    .evidence-bullets {
+    .mini-steps {
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .evidence-bullets div {
+    .mini-step {
       padding: 14px;
       border-radius: 16px;
-      background: var(--paper-soft);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--line);
     }
 
-    .evidence-bullets strong {
+    .mini-step strong,
+    .compare-card strong,
+    .faq-card strong,
+    .dock-copy strong {
       display: block;
       margin-bottom: 6px;
-      color: var(--ink);
       font-family: var(--heading);
+      color: var(--ink);
       font-size: 1.1rem;
     }
 
-    section { padding-bottom: 68px; }
+    .button,
+    .ghost {
+      min-height: 52px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 180ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible,
+    .ghost:hover,
+    .ghost:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button {
+      background: linear-gradient(135deg, var(--blue), var(--violet));
+      color: #fff;
+      box-shadow: 0 16px 28px rgba(90, 165, 255, 0.18);
+    }
+
+    .ghost {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--line);
+      color: var(--ink);
+    }
 
     .section-head {
       display: flex;
       justify-content: space-between;
       align-items: end;
-      gap: 18px;
-      margin-bottom: 24px;
+      gap: 16px;
+      margin-bottom: 18px;
     }
 
     .section-head p {
-      max-width: 56ch;
+      max-width: 34ch;
     }
 
-    .strip-grid,
-    .starter-grid,
-    .compare-grid,
-    .scenario-grid,
-    .faq-grid {
+    .chooser {
+      padding-bottom: 56px;
+    }
+
+    .chooser-shell {
       display: grid;
-      gap: 16px;
-    }
-
-    .strip-grid,
-    .starter-grid,
-    .compare-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .strip-card,
-    .starter-card,
-    .compare-card,
-    .scenario-card,
-    .faq-card {
-      padding: 20px;
-    }
-
-    .strip-card strong,
-    .starter-card strong,
-    .compare-card strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--ink);
-      font-family: var(--heading);
-      font-size: 1.1rem;
-    }
-
-    .starter-card img,
-    .compare-card img {
-      border-radius: 16px;
-      margin-bottom: 14px;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      background: #dfe9f5;
-    }
-
-    .starter-card em,
-    .compare-card em {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-style: normal;
-      color: var(--blue);
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      font-weight: 700;
-    }
-
-    .scenario-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 18px;
       align-items: start;
     }
 
-    .scenario-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .scenario-card {
-      cursor: pointer;
-      transition: transform 180ms ease, border-color 180ms ease;
-      border: 1px solid var(--line);
-    }
-
-    .scenario-card.active {
-      border-color: var(--blue);
-      transform: translateY(-3px);
-    }
-
-    .scenario-card img {
-      border-radius: 16px;
-      margin-bottom: 14px;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      background: #e2ebf8;
-    }
-
-    .scenario-card small {
-      display: inline-block;
-      margin-bottom: 8px;
-      color: var(--blue);
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .scenario-output {
-      padding: 22px;
-      overflow: hidden;
-    }
-
-    .scenario-output img {
-      border-radius: 18px;
-      margin-top: 18px;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
-      background: #d9e5f5;
-    }
-
-    .scenario-output strong {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--ink);
-      font-family: var(--heading);
-      font-size: 1.4rem;
-    }
-
-    .faq-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    details {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 16px 18px;
-      background: #fff;
-    }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      font-family: var(--heading);
-      font-size: 1.02rem;
-      color: var(--ink);
-    }
-
-    summary::-webkit-details-marker { display: none; }
-
-    details p { margin-top: 12px; }
-
-    .closing-card {
-      padding: 26px;
+    .path-grid {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 18px;
-      align-items: center;
-      background: linear-gradient(135deg, #edf6ff, #eef1ff);
-    }
-
-    .sticky {
-      position: fixed;
-      left: 50%;
-      bottom: 16px;
-      transform: translateX(-50%);
-      width: min(940px, calc(100% - 20px));
-      z-index: 30;
-    }
-
-    .sticky-card {
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
 
-    .sticky-info {
+    .path-card {
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .path-card.active {
+      transform: translateY(-3px);
+      border-color: var(--blue);
+    }
+
+    .path-card img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .path-copy {
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .path-copy small,
+    .compare-copy small {
+      display: inline-block;
+      width: fit-content;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .result-panel {
+      border-radius: 24px;
+      overflow: hidden;
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .result-panel img {
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .result-copy {
+      padding: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .result-copy strong {
+      display: block;
+      font-family: var(--heading);
+      font-size: 1.5rem;
+      color: var(--ink);
+    }
+
+    .compare-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      padding-bottom: 56px;
+    }
+
+    .compare-card {
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .compare-card img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .compare-copy {
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .trust-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      padding-bottom: 56px;
+    }
+
+    .trust-pill {
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .trust-pill strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: var(--heading);
+      color: var(--ink);
+      font-size: 1.04rem;
+    }
+
+    .faq-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding-bottom: 78px;
+    }
+
+    .faq-card {
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .dock {
+      position: fixed;
+      left: 50%;
+      bottom: 14px;
+      transform: translateX(-50%);
+      width: min(1020px, calc(100% - 16px));
+      border-radius: 18px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(8, 16, 30, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 34;
+    }
+
+    .dock-info {
       display: flex;
       align-items: center;
       gap: 12px;
       min-width: 0;
     }
 
-    .sticky-thumb {
+    .dock-thumb {
       width: 64px;
       height: 64px;
       border-radius: 14px;
       overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
       flex: 0 0 auto;
-      background: #dce8f6;
     }
 
-    .sticky-thumb img {
+    .dock-thumb img {
       height: 100%;
       object-fit: cover;
     }
 
-    .sticky-copy strong {
-      display: block;
-      color: var(--ink);
-      font-family: var(--heading);
-    }
-
-    .sticky-copy span {
+    .dock-copy span {
       display: block;
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    @media (max-width: 980px) {
-      .hero-grid,
-      .closing-card,
-      .strip-grid,
-      .starter-grid,
-      .compare-grid,
-      .faq-grid,
-      .scenario-shell,
-      .scenario-grid {
+    @media (max-width: 1040px) {
+      .dashboard-grid,
+      .chooser-shell,
+      .compare-row,
+      .trust-strip,
+      .faq-row {
         grid-template-columns: 1fr;
       }
 
-      .section-head { align-items: start; }
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .topbar {
         flex-direction: column;
         align-items: start;
       }
 
-      .hero-copy,
-      .evidence-card,
-      .strip-card,
-      .starter-card,
-      .compare-card,
-      .scenario-card,
-      .scenario-output,
-      .faq-card,
-      .closing-card {
-        padding: 20px;
+      .preview-screen {
+        min-height: 460px;
       }
 
-      .cta-row,
-      .sticky-card {
+      .dock {
         flex-direction: column;
         align-items: stretch;
       }
 
-      .button { width: 100%; }
+      .button,
+      .ghost {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="wrap">
-      <div class="topbar">
-        <div class="brand">Philips Hue First-Order Guide</div>
-        <div class="top-note">Built more like a smart-lighting buyer's guide than a generic brand landing page.</div>
-      </div>
-
-      <div class="hero-grid">
-        <article class="hero-main">
-          <div class="hero-scene">
-            <img id="heroImage" alt="">
-            <div class="hero-glow">
-              <span>Starter-kit friendly</span>
-              <span>Room-based buying</span>
-              <span>Scenes, mood, and routines</span>
-            </div>
-          </div>
-          <div class="hero-copy">
-            <div class="eyebrow">Starter kits / bundles / room transformation</div>
-            <h1>Sell the room outcome first, and Hue starts feeling easy to buy.</h1>
-            <p class="lead">
-              This redesign mixes official Philips Hue visual language with the structure of a strong affiliate buyer's
-              guide. The result is less “brand brochure” and more “what should I buy first for my home?”
-            </p>
-            <div class="trust-row">
-              <span>Free shipping over $49.99</span>
-              <span>Free returns for 30 days</span>
-              <span>2-year warranty</span>
-              <span>Klarna support on official pages</span>
-            </div>
-            <div class="cta-row">
-              <a class="button button-primary" data-aff-link href="#">Shop Philips Hue</a>
-              <a class="button button-secondary" href="#scenario-grid">Choose a room goal</a>
-            </div>
-            <p style="margin-top:14px;" id="heroScenarioNote">Recommended angle: beginner traffic should see one room transformation path before it sees the whole catalog.</p>
-          </div>
-        </article>
-
-        <aside class="evidence-card">
-          <div class="eyebrow">Evidence at a glance</div>
-          <div class="evidence-top">
-            <div>
-              <h2 style="max-width:none;">Start with a kit, then expand if the first room earns it.</h2>
-              <p style="margin-top:12px;">This is the shortest path from curiosity to a believable first order.</p>
-            </div>
-            <img id="packshotImage" alt="">
-          </div>
-          <div class="evidence-bullets">
-            <div>
-              <strong>Best first buy</strong>
-              <p>Starter kits and room bundles reduce category confusion better than one-off bulb pages.</p>
-            </div>
-            <div>
-              <strong>Best value story</strong>
-              <p>The ecosystem becomes easier to justify when the buyer pictures a specific room change.</p>
-            </div>
-            <div>
-              <strong>Best trust signals</strong>
-              <p>Policies, app control, voice compatibility, and expandability matter more for first-time smart-light buyers than abstract feature lists.</p>
-            </div>
-          </div>
-        </aside>
-      </div>
+  <header class="wrap">
+    <div class="topbar">
+      <div class="brand">Philips Hue Setup Finder</div>
+      <div class="topmeta">Pick a room. Start simple.</div>
     </div>
   </header>
 
   <main class="wrap">
-    <section>
+    <section class="dashboard">
+      <div class="dashboard-grid">
+        <article class="preview-screen">
+          <div class="preview-image"><img id="previewImage" alt=""></div>
+          <div class="preview-copy">
+            <div class="eyebrow">Step 1: pick the room</div>
+            <h1>What room do you want to change first?</h1>
+            <p class="preview-note">Choose one room, start with one strong setup, and make tonight feel different.</p>
+          </div>
+        </article>
+
+        <aside class="control-panel">
+          <div class="control-top">
+            <div>
+              <div class="eyebrow" style="background:rgba(90,165,255,0.12);color:var(--blue);">Best first move</div>
+              <h2 style="max-width:none;margin-top:10px;">Starter kit + one clear room goal</h2>
+            </div>
+            <img id="packshotImage" alt="">
+          </div>
+
+          <div class="mini-steps">
+            <div class="mini-step">
+              <strong>Pick the room</strong>
+              <p>Bedroom, movie night, gaming, or practical control.</p>
+            </div>
+            <div class="mini-step">
+              <strong>See the setup</strong>
+              <p>Scene image first, product choice second.</p>
+            </div>
+            <div class="mini-step">
+              <strong>Click the path</strong>
+              <p>One strong CTA instead of long comparison text.</p>
+            </div>
+          </div>
+
+          <a class="button" href="#roomPaths">Find my setup</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="chooser" id="roomPaths">
       <div class="section-head">
         <div>
-          <div class="eyebrow">Why this page shape works</div>
-          <h2>It behaves like a buyer's guide, but still hands off cleanly to the official store.</h2>
+          <div class="eyebrow" style="background:rgba(90,165,255,0.12);color:var(--blue);">Step 2: choose a path</div>
+          <h2>Tap the room that feels most urgent.</h2>
         </div>
-        <p>
-          The page structure references strong CPS comparison sites and product-led guides: proof blocks, visible
-          visuals, category simplification, and room-based decision flows.
-        </p>
+        <p>Choose the result you want first.</p>
       </div>
-      <div class="strip-grid">
-        <article class="strip-card">
-          <strong>Room first</strong>
-          <p>People buy better sleep, better movie nights, or a better gaming setup before they buy “smart bulbs.”</p>
-        </article>
-        <article class="strip-card">
-          <strong>Kit first</strong>
-          <p>Starter kits feel complete, while single-bulb purchases often leave first-time buyers underwhelmed.</p>
-        </article>
-        <article class="strip-card">
-          <strong>Proof first</strong>
-          <p>Trust signals and real scenes remove more hesitation than long paragraphs about protocols and specs.</p>
-        </article>
-        <article class="strip-card">
-          <strong>Expand later</strong>
-          <p>Once one room works, the ecosystem story becomes much easier to understand and justify.</p>
+
+      <div class="chooser-shell">
+        <div class="path-grid" id="pathGrid"></div>
+        <article class="result-panel">
+          <img id="resultImage" loading="lazy" alt="">
+          <div class="result-copy">
+            <div class="eyebrow" style="background:rgba(90,165,255,0.12);color:var(--blue);">Step 3: take the setup</div>
+            <strong id="resultTitle">Bedroom Wind-Down</strong>
+            <p id="resultCopy">Start with comfort, softer routines, and a room that feels noticeably better tonight.</p>
+            <a class="button" data-aff-link href="#">Shop this setup</a>
+          </div>
         </article>
       </div>
     </section>
@@ -627,257 +545,182 @@
     <section>
       <div class="section-head">
         <div>
-          <div class="eyebrow">Starter Paths</div>
-          <h2>Give the visitor a first-order lane instead of a full-store maze.</h2>
+          <div class="eyebrow" style="background:rgba(90,165,255,0.12);color:var(--blue);">Compare by scene</div>
+          <h2>Sell the room result, not the bulb spec.</h2>
         </div>
-        <p>
-          These are not separate landing pages. They are buying frames that make the official store feel easier to enter.
-        </p>
+        <p>Scenes sell the upgrade faster than specs.</p>
       </div>
-      <div class="starter-grid">
-        <article class="starter-card">
-          <img id="starterScene" loading="lazy" alt="">
-          <em>Best overall</em>
-          <strong>White and color starter kit</strong>
-          <p>Best when the buyer wants visible mood payoff, simple setup logic, and room growth potential.</p>
-        </article>
-        <article class="starter-card">
-          <img id="starterMood" loading="lazy" alt="">
-          <em>Best lifestyle pitch</em>
-          <strong>Mood-lighting story</strong>
-          <p>Great when the room upgrade itself is the real product the user is shopping for.</p>
-        </article>
-        <article class="starter-card">
-          <img id="starterBedroom" loading="lazy" alt="">
-          <em>Best daily-use hook</em>
-          <strong>Bedroom routine</strong>
-          <p>Easy to understand, emotionally immediate, and useful for both comfort and daily rhythm messaging.</p>
-        </article>
-        <article class="starter-card">
-          <img id="starterGaming" loading="lazy" alt="">
-          <em>Best visible transformation</em>
-          <strong>Gaming or entertainment</strong>
-          <p>Strong for traffic that cares about immersion, color, and a room that looks different tonight.</p>
-        </article>
-      </div>
-    </section>
 
-    <section>
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Compare The Pitch</div>
-          <h2>The winning angle is usually simpler than the product catalog.</h2>
-        </div>
-        <p>
-          A stronger CPS page does not try to teach everything. It chooses the most convincing first-order story.
-        </p>
-      </div>
-      <div class="compare-grid">
+      <div class="compare-row">
         <article class="compare-card">
-          <img id="comparePackshot" loading="lazy" alt="">
-          <em>Catalog story</em>
-          <strong>“Here are the products”</strong>
-          <p>Useful for loyal shoppers, but too open-ended for many first-time paid clicks.</p>
+          <img id="compareOne" loading="lazy" alt="">
+          <div class="compare-copy">
+            <small>Best for comfort</small>
+            <strong>Bedroom mood</strong>
+            <p>Daily-use payoff with low friction.</p>
+          </div>
         </article>
         <article class="compare-card">
-          <img id="compareLivingroom" loading="lazy" alt="">
-          <em>Winning story</em>
-          <strong>“Here is the room result”</strong>
-          <p>Much easier for newcomers to picture, justify, and act on quickly.</p>
+          <img id="compareTwo" loading="lazy" alt="">
+          <div class="compare-copy">
+            <small>Best for wow factor</small>
+            <strong>Living room upgrade</strong>
+            <p>Sell the atmosphere before the hardware.</p>
+          </div>
         </article>
         <article class="compare-card">
-          <img id="compareSecurity" loading="lazy" alt="">
-          <em>Practical story</em>
-          <strong>Security and routines</strong>
-          <p>Good when the buyer wants the first order to feel useful as well as fun.</p>
-        </article>
-        <article class="compare-card">
-          <img id="compareHome" loading="lazy" alt="">
-          <em>Ecosystem story</em>
-          <strong>Grow one room into more rooms</strong>
-          <p>Strong for users who want to start small without feeling boxed into one device forever.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="scenario-grid">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">Room-Based Scenarios</div>
-          <h2>Let the visitor pick the room feeling, then use that to simplify the purchase.</h2>
-        </div>
-        <p>
-          Click a scenario to update the recommendation copy in the page close and sticky CTA.
-        </p>
-      </div>
-      <div class="scenario-shell">
-        <div class="scenario-grid">
-          <article class="scenario-card active" data-scenario-card data-title="Bedroom Wind-Down" data-copy="Lead with calmer evenings, gentler wake-ups, and everyday comfort. This is a great path for first-time buyers who want payoff every single day." data-note="Current recommendation: bedroom-driven traffic should see a starter-kit or warm-to-color room-upgrade path first." data-image="assets/philips-hue/bedroom.jpg">
-            <img id="scenarioBedroom" loading="lazy" alt="">
-            <small>Daily payoff</small>
-            <h3>Bedroom Wind-Down</h3>
-            <p>Comfort, routines, and softer light make Hue feel useful before it feels technical.</p>
-          </article>
-          <article class="scenario-card" data-scenario-card data-title="Living Room Movie Night" data-copy="Lead with atmosphere, entertainment, and a room that instantly feels more cinematic. This is ideal for couples, hosts, and evening-heavy households." data-note="Current recommendation: living-room traffic should see entertainment scenes and bundle-friendly room imagery early." data-image="assets/philips-hue/starter-livingroom.jpg">
-            <img id="scenarioLivingroom" loading="lazy" alt="">
-            <small>Entertainment hook</small>
-            <h3>Living Room Movie Night</h3>
-            <p>One of the easiest ways to make the product feel fun, immersive, and worth the premium.</p>
-          </article>
-          <article class="scenario-card" data-scenario-card data-title="Gaming Setup Glow" data-copy="Lead with color, immersion, and visible transformation. This path sells because the room changes are obvious immediately." data-note="Current recommendation: gaming traffic should be pushed toward color-capable starter kits and immersive room setups." data-image="assets/philips-hue/gaming.jpg">
-            <img id="scenarioGaming" loading="lazy" alt="">
-            <small>Most visual</small>
-            <h3>Gaming Setup Glow</h3>
-            <p>Perfect for users who want a room to look upgraded, not just function a little better.</p>
-          </article>
-          <article class="scenario-card" data-scenario-card data-title="Entryway Confidence" data-copy="Lead with routines, smart arrival moments, and a more secure-feeling home. This helps first orders feel practical, not just decorative." data-note="Current recommendation: security-curious traffic should see practical benefits and trust cues before advanced ecosystem messaging." data-image="assets/philips-hue/security.jpg">
-            <img id="scenarioSecurity" loading="lazy" alt="">
-            <small>Practical value</small>
-            <h3>Entryway Confidence</h3>
-            <p>Smart-home skeptics often respond better when the first use case feels practical and protective.</p>
-          </article>
-        </div>
-
-        <article class="scenario-output">
-          <div class="eyebrow">Current recommendation</div>
-          <strong id="scenarioTitle">Bedroom Wind-Down</strong>
-          <p id="scenarioCopy">Lead with calmer evenings, gentler wake-ups, and everyday comfort. This is a great path for first-time buyers who want payoff every single day.</p>
-          <img id="scenarioPreview" loading="lazy" alt="">
+          <img id="compareThree" loading="lazy" alt="">
+          <div class="compare-copy">
+            <small>Best for immersion</small>
+            <strong>Gaming glow</strong>
+            <p>Most visual and easiest to crave fast.</p>
+          </div>
         </article>
       </div>
     </section>
 
     <section>
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">FAQ</div>
-          <h2>Answer the first-order questions, not the entire smart-home universe.</h2>
-        </div>
-        <p>
-          The goal is to shorten the first purchase path and let deeper research happen later.
-        </p>
-      </div>
-      <div class="faq-grid">
-        <div class="faq-card">
-          <details open>
-            <summary>What should most new buyers start with?</summary>
-            <p>A starter kit or room bundle gives a more complete first experience than buying one bulb in isolation.</p>
-          </details>
-        </div>
-        <div class="faq-card">
-          <details>
-            <summary>Why does this page focus on rooms instead of specs?</summary>
-            <p>Because the most persuasive first-order question is usually “what change do I want in my space?” rather than “which protocol should I compare?”</p>
-          </details>
-        </div>
-        <div class="faq-card">
-          <details>
-            <summary>What trust cues help paid traffic most?</summary>
-            <p>Official shipping, return, warranty, financing, and ecosystem compatibility cues do more to close first orders than long technical explanations.</p>
-          </details>
-        </div>
+      <div class="trust-strip">
+        <article class="trust-pill">
+          <strong>Free shipping</strong>
+          <p>Over $49.99 on current official messaging.</p>
+        </article>
+        <article class="trust-pill">
+          <strong>Free returns</strong>
+          <p>30-day safety net for first orders.</p>
+        </article>
+        <article class="trust-pill">
+          <strong>2-year warranty</strong>
+          <p>Important when the category feels technical.</p>
+        </article>
+        <article class="trust-pill">
+          <strong>Klarna</strong>
+          <p>Useful for higher-price starter purchases.</p>
+        </article>
       </div>
     </section>
 
     <section>
-      <div class="closing-card">
-        <div>
-          <div class="eyebrow">Final Push</div>
-          <h2 style="max-width:none;">Pick the room you want to improve most, then let the official store handle the exact kit or bundle.</h2>
-          <p id="closingScenarioNote">Current recommendation: bedroom-driven traffic should see a starter-kit or warm-to-color room-upgrade path first.</p>
-        </div>
-        <a class="button button-primary" data-aff-link href="#">Start with Hue</a>
+      <div class="faq-row">
+        <article class="faq-card">
+          <strong>What should most buyers start with?</strong>
+          <p>A starter kit tied to one room goal.</p>
+        </article>
+        <article class="faq-card">
+          <strong>Why scenes over specs?</strong>
+          <p>Users buy visible room change before technical detail.</p>
+        </article>
+        <article class="faq-card">
+          <strong>What usually works best?</strong>
+          <p>One starter kit tied to one room goal.</p>
+        </article>
       </div>
     </section>
   </main>
 
-  <div class="sticky">
-    <div class="sticky-card">
-      <div class="sticky-info">
-        <div class="sticky-thumb"><img id="stickyThumb" alt=""></div>
-        <div class="sticky-copy">
-          <strong id="stickyOfferTitle">Philips Hue US</strong>
-          <span id="stickyOfferNote">Current recommendation: bedroom-driven traffic should see a starter-kit or warm-to-color room-upgrade path first.</span>
-        </div>
+  <div class="dock">
+    <div class="dock-info">
+      <div class="dock-thumb"><img id="dockThumb" alt=""></div>
+      <div class="dock-copy">
+        <strong id="dockTitle">Philips Hue US</strong>
+        <span id="dockNote">Current setup: Bedroom Wind-Down.</span>
       </div>
-      <a class="button button-primary" data-aff-link href="#">Shop now</a>
     </div>
+    <a class="button" data-aff-link href="#">Shop now</a>
   </div>
 
   <script>
     const AFFILIATE_URL = "https://www.philips-hue.com/en-us";
     const PRIMARY_OFFER_TITLE = "Philips Hue US";
-    const SECONDARY_CTA_TEXT = "Shop Philips Hue";
+    const SECONDARY_CTA_TEXT = "Shop now";
     const PAGE_META = {
-      shipping: "Free shipping over $49.99",
-      returns: "Free returns for 30 days",
-      warranty: "2-year warranty"
+      angle: "Interactive setup finder",
+      emphasis: "Scene first, setup second, copy last",
+      style: "Tool-like selection flow"
     };
     const MEDIA = {
-      hero: {
-        src: "assets/philips-hue/home-hero.jpg",
-        alt: "Philips Hue lifestyle home scene"
+      hero: { src: "assets/philips-hue/home-hero.jpg", alt: "Philips Hue home scene" },
+      packshot: { src: "assets/philips-hue/starter-category.jpg", alt: "Starter kit packshot" },
+      bedroom: { src: "assets/philips-hue/bedroom.jpg", alt: "Hue bedroom scene" },
+      livingroom: { src: "assets/philips-hue/starter-livingroom.jpg", alt: "Hue living room scene" },
+      gaming: { src: "assets/philips-hue/gaming.jpg", alt: "Hue gaming scene" },
+      security: { src: "assets/philips-hue/security.jpg", alt: "Hue smart security scene" },
+      mood: { src: "assets/philips-hue/mood-hero.jpg", alt: "Hue mood lighting scene" }
+    };
+    const ROOM_PATHS = [
+      {
+        badge: "Daily payoff",
+        title: "Bedroom Wind-Down",
+        copy: "Start with comfort, softer routines, and a room that feels noticeably better tonight.",
+        note: "Current setup: Bedroom Wind-Down.",
+        image: MEDIA.bedroom.src
       },
-      packshot: {
-        src: "assets/philips-hue/starter-category.jpg",
-        alt: "Philips Hue starter kit packshot-style product image"
+      {
+        badge: "Movie mood",
+        title: "Living Room Night",
+        copy: "Lead with atmosphere and entertainment before product detail.",
+        note: "Current setup: Living Room Night.",
+        image: MEDIA.livingroom.src
       },
-      starter: {
-        livingroom: {
-          src: "assets/philips-hue/starter-livingroom.jpg",
-          alt: "Philips Hue starter kit living room scene"
-        },
-        mood: {
-          src: "assets/philips-hue/mood-hero.jpg",
-          alt: "Philips Hue mood lighting image"
-        },
-        bedroom: {
-          src: "assets/philips-hue/bedroom.jpg",
-          alt: "Philips Hue bedroom lighting image"
-        },
-        gaming: {
-          src: "assets/philips-hue/gaming.jpg",
-          alt: "Philips Hue gaming room image"
-        },
-        security: {
-          src: "assets/philips-hue/security.jpg",
-          alt: "Philips Hue security and practical-use image"
-        },
-        home: {
-          src: "assets/philips-hue/home-hero.jpg",
-          alt: "Philips Hue connected home image"
-        }
+      {
+        badge: "Most visual",
+        title: "Gaming Glow",
+        copy: "Use color and transformation to create the fastest desire spike.",
+        note: "Current setup: Gaming Glow.",
+        image: MEDIA.gaming.src
       },
-      sticky: {
-        src: "assets/philips-hue/starter-livingroom.jpg",
-        alt: "Philips Hue sticky CTA thumbnail"
+      {
+        badge: "Most practical",
+        title: "Entryway Confidence",
+        copy: "Start with routines and a smarter-feeling arrival for practical buyers.",
+        note: "Current setup: Entryway Confidence.",
+        image: MEDIA.security.src
       }
-    };
+    ];
+    const SETUP_COMPARE = [
+      { image: MEDIA.bedroom.src, alt: MEDIA.bedroom.alt },
+      { image: MEDIA.livingroom.src, alt: MEDIA.livingroom.alt },
+      { image: MEDIA.gaming.src, alt: MEDIA.gaming.alt }
+    ];
 
-    const imageBindings = {
-      heroImage: MEDIA.hero,
-      packshotImage: MEDIA.packshot,
-      starterScene: MEDIA.starter.livingroom,
-      starterMood: MEDIA.starter.mood,
-      starterBedroom: MEDIA.starter.bedroom,
-      starterGaming: MEDIA.starter.gaming,
-      comparePackshot: MEDIA.packshot,
-      compareLivingroom: MEDIA.starter.livingroom,
-      compareSecurity: MEDIA.starter.security,
-      compareHome: MEDIA.starter.home,
-      scenarioBedroom: MEDIA.starter.bedroom,
-      scenarioLivingroom: MEDIA.starter.livingroom,
-      scenarioGaming: MEDIA.starter.gaming,
-      scenarioSecurity: MEDIA.starter.security,
-      scenarioPreview: MEDIA.starter.bedroom,
-      stickyThumb: MEDIA.sticky
-    };
+    document.getElementById("previewImage").src = MEDIA.hero.src;
+    document.getElementById("previewImage").alt = MEDIA.hero.alt;
+    document.getElementById("packshotImage").src = MEDIA.packshot.src;
+    document.getElementById("packshotImage").alt = MEDIA.packshot.alt;
+    document.getElementById("resultImage").src = MEDIA.bedroom.src;
+    document.getElementById("resultImage").alt = MEDIA.bedroom.alt;
+    document.getElementById("compareOne").src = SETUP_COMPARE[0].image;
+    document.getElementById("compareOne").alt = SETUP_COMPARE[0].alt;
+    document.getElementById("compareTwo").src = SETUP_COMPARE[1].image;
+    document.getElementById("compareTwo").alt = SETUP_COMPARE[1].alt;
+    document.getElementById("compareThree").src = SETUP_COMPARE[2].image;
+    document.getElementById("compareThree").alt = SETUP_COMPARE[2].alt;
+    document.getElementById("dockThumb").src = MEDIA.packshot.src;
+    document.getElementById("dockThumb").alt = MEDIA.packshot.alt;
+    document.getElementById("dockTitle").textContent = PRIMARY_OFFER_TITLE;
 
-    Object.entries(imageBindings).forEach(([id, asset]) => {
-      const img = document.getElementById(id);
-      if (!img) return;
-      img.src = asset.src;
-      img.alt = asset.alt;
+    const pathGrid = document.getElementById("pathGrid");
+    ROOM_PATHS.forEach((path, index) => {
+      const card = document.createElement("article");
+      card.className = "path-card" + (index === 0 ? " active" : "");
+      card.innerHTML = `
+        <img src="${path.image}" alt="${path.title}">
+        <div class="path-copy">
+          <small>${path.badge}</small>
+          <h3>${path.title}</h3>
+          <p>${path.copy}</p>
+        </div>
+      `;
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".path-card").forEach((node) => node.classList.remove("active"));
+        card.classList.add("active");
+        document.getElementById("resultTitle").textContent = path.title;
+        document.getElementById("resultCopy").textContent = path.copy;
+        document.getElementById("resultImage").src = path.image;
+        document.getElementById("dockNote").textContent = path.note;
+        document.getElementById("dockThumb").src = path.image;
+      });
+      pathGrid.appendChild(card);
     });
 
     document.querySelectorAll("[data-aff-link]").forEach((link) => {
@@ -885,22 +728,6 @@
       if (!link.textContent.trim()) {
         link.textContent = SECONDARY_CTA_TEXT;
       }
-    });
-
-    document.getElementById("stickyOfferTitle").textContent = PRIMARY_OFFER_TITLE;
-
-    document.querySelectorAll("[data-scenario-card]").forEach((card) => {
-      card.addEventListener("click", () => {
-        document.querySelectorAll("[data-scenario-card]").forEach((node) => node.classList.remove("active"));
-        card.classList.add("active");
-        document.getElementById("scenarioTitle").textContent = card.dataset.title;
-        document.getElementById("scenarioCopy").textContent = card.dataset.copy;
-        document.getElementById("heroScenarioNote").textContent = "Recommended angle: " + card.dataset.copy;
-        document.getElementById("closingScenarioNote").textContent = card.dataset.note;
-        document.getElementById("stickyOfferNote").textContent = card.dataset.note;
-        const preview = document.getElementById("scenarioPreview");
-        preview.src = card.dataset.image;
-      });
     });
   </script>
 </body>
